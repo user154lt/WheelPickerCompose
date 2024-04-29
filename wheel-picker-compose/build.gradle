@@ -1,7 +1,9 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'maven-publish'
+    id 'com.vanniktech.maven.publish' version '0.28.0'
 }
 
 android {
@@ -52,17 +54,7 @@ dependencies {
 }
 
 
-afterEvaluate {
-
-    publishing{
-        publications {
-            release(MavenPublication){
-                from components.release
-
-                groupId = 'com.github.user154lt'
-                artifactId = 'wheel-picker-compose'
-                version = '1.1.11'
-            }
-        }
-    }
+mavenPublishing{
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    signAllPublications()
 }
