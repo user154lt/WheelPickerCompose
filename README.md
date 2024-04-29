@@ -2,6 +2,8 @@
 
 Add Wheel Date - Time Picker in Android Jetpack Compose.
 
+Personal fork just to keep compose version up to date.
+
 <img src="art/wheel_picker_compose_cover.png"> 
 
 ## Usage
