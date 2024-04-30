@@ -1,10 +1,8 @@
-import com.vanniktech.maven.publish.SonatypeHost
-import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
 
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'com.vanniktech.maven.publish' version '0.28.0'
+    id 'maven-publish'
 }
 
 android {
@@ -54,8 +52,12 @@ dependencies {
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.0.4"
 }
 
-
-mavenPublishing{
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
-    signAllPublications()
+publishing{
+    publications {
+        release(MavenPublication){
+            groupId = 'com.github.user154lt'
+            artifactId = 'wheel-picker-compose'
+            version = '1.1.12'
+        }
+    }
 }
